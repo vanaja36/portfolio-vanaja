@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanaja P - Data Analyst & Data Engineer Portfolio</title>
+    <link rel="stylesheet" href="C:\Users\vanaj\Pictures\images\style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --dark-bg: #0f172a;
+            --darker-bg: #020617;
+            --text-light: #f1f5f9;
+            --text-gray: #94a3b8;
+            --card-bg: #1e293b;
+            --gradient: linear-gradient(135deg, #373f63 0%, #764ba2 100%);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #e2e8f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: #e2e8f0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .section-title p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            margin: 0 auto;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-gray);
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .skill-category h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.5rem 0;
+            color: var(--text-gray);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.1);
+        }
+
+        .project-image {
+            height: 200px;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-content h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .project-tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tool-tag {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .project-link {
+            padding: 0.5rem 1rem;
+            background: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: var(--secondary-color);
+        }
+
+        /* Timeline Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: var(--accent-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        .timeline-item {
+            padding: 2rem;
+            position: relative;
+            width: 50%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            position: relative;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            top: 3rem;
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 1rem 2rem;
+            background: var(--card-bg);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--darker-bg);
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .timeline::after {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                left: 0;
+                padding-left: 3rem;
+            }
+
+            .timeline-item::after {
+                left: 10px;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animation classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Vanaja P</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#timeline">Timeline</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+<section id="home" class="hero">
+
+  <div class="hero-content">
+    <h1>Vanaja P</h1>
+    <p>Data Analyst & Data Engineer</p>
+    <p>Transforming raw data into actionable insights to drive business decisions</p>
+    <a href="#projects" class="cta-button">View My Work</a>
+  </div>
+</section>
+
+
+    <!-- About Section -->
+<section id="about"class="hero" 
+style="background-image: url('about.png'); 
+       background-size: cover; 
+       background-position: center; 
+       height: 100vh; 
+       display: flex; 
+       justify-content: center; 
+       align-items: center; 
+       text-align: center; 
+       color: white;">
+    <div class="container">
+        <div class="section-title">
+            <h2>About Me</h2>
+            <p>Passionate Data Professional with expertise in analytics and engineering</p>
+        </div>
+        <div class="about-content fade-in">
+            <div class="about-image">
+                <!-- Profile image instead of icon -->
+                <img src="C:\Users\vanaj\Pictures\images\image.png" alt="Vanaja P" class="profile-img">
+            </div>
+            <div class="about-text">
+                <h3>👩‍💻 Data Professional</h3>
+                <p>Passionate Data Professional with hands-on experience in Python, SQL, Power BI, Excel, GCP, Airflow, and BigQuery. Skilled in data analysis, ETL pipeline development, and building analytics-ready datasets.</p>
+                <p>Currently Training as a Data Analyst Trainee at Codegnan IT Solutions, where I've improved reporting efficiency by 30% through interactive Power BI dashboards and reduced dataset noise by 25% through advanced data cleaning techniques.</p>
+                <p>I hold a B.Tech in Artificial Intelligence & Machine Learning with a CGPA of 8.0 and have completed comprehensive Data Engineer certification from GeeksforGeeks, covering everything from Spark and Hadoop to real-time streaming and MLlib.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Skills Section -->
+    <section id="skills"  >
+  <div class="container">
+        <div class="container">
+            <div class="section-title">
+                <h2>🛠 Skills</h2>
+                <p>Technical expertise across data analysis and engineering domains</p>
+            </div>
+            <div class="skills-grid fade-in">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming & Scripting</h3>
+                    <ul class="skill-list">
+                        <li>Python (Pandas, NumPy, Statsmodels, Matplotlib, Seaborn, Plotly)</li>
+                        <li>SQL (PostgreSQL, MySQL, BigQuery, Snowflake)</li>
+                        <li>Git & GitHub, Jupyter Notebook, VS Code</li>
+                        <li>Linux & Shell Scripting (basic)</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-chart-line"></i> Data Analysis & Visualization</h3>
+                    <ul class="skill-list">
+                        <li>Data Cleaning & Exploratory Data Analysis (EDA)</li>
+                        <li>Statistical Modeling & Forecasting (Holt-Winters, Time Series)</li>
+                        <li>Dashboarding: Power BI, Tableau, Excel, Looker Studio</li>
+                        <li>KPI Tracking & Business Intelligence Reporting</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-cloud"></i> Data Engineering & Cloud</h3>
+                    <ul class="skill-list">
+                        <li>ETL / ELT Pipeline Design & Development</li>
+                        <li>Google Cloud Platform (GCP): Data Fusion, BigQuery, Cloud Storage</li>
+                        <li>Workflow Orchestration: Apache Airflow / Cloud Composer</li>
+                        <li>Apache Spark & PySpark (DataFrames, SQL, Streaming, MLlib)</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Data Modeling & Architecture</h3>
+                    <ul class="skill-list">
+                        <li>Data Modeling: Star Schema, Fact & Dimension Tables</li>
+                        <li>Incremental Data Loads, Data Quality Checks</li>
+                        <li>dbt (Data Build Tool)</li>
+                        <li>Kafka (introductory streaming concepts)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" >
+              
+        <div class="container">
+            <div class="section-title">
+                <h2>📂 Featured Projects</h2>
+                <p>Data analysis and engineering projects showcasing end-to-end skills</p>
+           <div class="projects-grid fade-in">
+            </div>
+            <div class="projects-grid fade-in">
+                <!-- Bank Loan Analysis -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="C:\Users\vanaj\Pictures\images\bank-loan .png" alt="Bank Loan Analysis Capstone">
+                    </div>
+                    <div class="project-content">
+                        <h3>Bank Loan Analysis Capstone</h3>
+                        <p>Analyzed a bank's loan portfolio to assess risk and provide insights for strategic decisions. Developed interactive dashboards and performed comprehensive EDA to identify high-risk loan segments.</p>
+                        <div class="project-tools">
+                            <span class="tool-tag">Python</span>
+                            <span class="tool-tag">Pandas</span>
+                            <span class="tool-tag">SQL</span>
+                            <span class="tool-tag">Power BI</span>
+                            <span class="tool-tag">Excel</span>
+                            <span class="tool-tag">Tableau</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/vanaja36/Bank-Loan-Analysis-Capstone" class="project-link">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+    
+
+                <!-- ETL Pipeline -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="C:\Users\vanaj\Pictures\images\etl-data.png" alt="ETL Pipeline">
+                    </div>
+                    <div class="project-content">
+                        <h3>ETL Pipeline with Data Fusion, Airflow & BigQuery</h3>
+                        <p>Built end-to-end ETL pipeline for employee data on GCP. Orchestrated workflows using Airflow and prepared analytics-ready datasets for Looker Studio dashboards.</p>
+                        <div class="project-tools">
+                            <span class="tool-tag">Python</span>
+                            <span class="tool-tag">GCP</span>
+                            <span class="tool-tag">Data Fusion</span>
+                            <span class="tool-tag">Airflow</span>
+                            <span class="tool-tag">BigQuery</span>
+                            <span class="tool-tag">Looker Studio</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/vanaja36/etl-pipeline-datafusion-airflow" class="project-link">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- E-commerce Analysis -->
+                <div class="project-card">
+                    <div class="project-image">
+                      <img src="C:\Users\vanaj\Pictures\images\ecomerce.png" alt="E-commerce Analysis">  
+                    </div>
+                    <div class="project-content">
+                        <h3>E-commerce Sales Analysis Dashboard</h3>
+                        <p>Built interactive dashboards to track sales, profit, and product performance. Generated insights for inventory prioritization and shipping optimization through comprehensive BI analysis.</p>
+                        <div class="project-tools">
+                            <span class="tool-tag">SQL</span>
+                            <span class="tool-tag">Power BI</span>
+                            <span class="tool-tag">Excel</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/vanaja36/E-commerce-Sales-Analysis" class="project-link">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Supply Chain -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="C:\Users\vanaj\Pictures\images\supply-chain.png" alt="Supply Chain">
+                    </div>
+                    <div class="project-content">
+                        <h3>Supply Chain & Inventory EDA with Forecasting</h3>
+                        <p>Optimized stock management and forecasted future demand using comprehensive EDA, ABC inventory classification, and Holt-Winters forecasting for 6-month demand prediction.</p>
+                        <div class="project-tools">
+                            <span class="tool-tag">Python</span>
+                            <span class="tool-tag">Pandas</span>
+                            <span class="tool-tag">Matplotlib</span>
+                            <span class="tool-tag">Seaborn</span>
+                            <span class="tool-tag">Plotly</span>
+                            <span class="tool-tag">Statsmodels</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/vanaja36/SupplyChain_EDA_Forecasting" class="project-link">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SQL Data Warehouse -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="C:\Users\vanaj\Pictures\images\sql-datapipline.png" alt="SQL Data Warehouse">
+                    </div>
+                    <div class="project-content">
+                        <h3>SQL Data Warehouse & Analytics Pipeline</h3>
+                        <p>Designed and implemented a star-schema data warehouse with structured ETL pipelines. Applied data quality checks and modeled fact and dimension tables for analytics.</p>
+                        <div class="project-tools">
+                            <span class="tool-tag">SQL</span>
+                            <span class="tool-tag">PostgreSQL</span>
+                            <span class="tool-tag">BigQuery</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/vanaja36/sql-data-warehouse-project" class="project-link">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Netflix Pipeline -->
+                <div class="project-card">
+                    <div class="project-image">
+                       <img src="C:\Users\vanaj\Pictures\images\netflix.png" alt="Netflix Pipeline"> 
+                    </div>
+                    <div class="project-content">
+                        <h3>Netflix Viewing Data Analytics Pipeline</h3>
+                        <p>Building a data analytics pipeline for Netflix datasets, transforming raw data into star-schema warehouse with incremental dbt models and data quality tests. (Ongoing)</p>
+                        <div class="project-tools">
+                            <span class="tool-tag">dbt</span>
+                            <span class="tool-tag">SQL</span>
+                            <span class="tool-tag">Snowflake</span>
+                            <span class="tool-tag">Looker Studio</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/vanaja36/dbt-netflix-project" class="project-link">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Timeline Section -->
+<section id="timeline" aria-label="Professional Timeline">
+    <div class="container">
+      <div class="section-title">
+        <h2>📅 Professional Timeline</h2>
+        <p>My journey in data analytics and engineering</p>
+      </div>
+  
+      <div class="timeline">
+        <!-- Timeline Item 1 -->
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>Data Analyst Trainee</h3>
+            <h4>Codegnan IT Solutions, Hyderabad</h4>
+            <p><strong>May 2025 – Present</strong></p>
+            <p>
+              Performing EDA and dashboard development using Python and Power BI.
+              Improved reporting efficiency by 30% and reduced dataset noise by 25%
+              through advanced data cleaning techniques.
+            </p>
+          </div>
+        </div>
+  
+        <!-- Timeline Item 2 -->
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>Data Engineer Certification</h3>
+            <h4>GeeksforGeeks</h4>
+            <p><strong>2025</strong></p>
+            <p>
+              Comprehensive certification covering Big Data, Apache Spark, PySpark,
+              Streaming, MLlib, and cluster management. Gained expertise in modern
+              data engineering tools and practices.
+            </p>
+          </div>
+        </div>
+  
+        <!-- Timeline Item 3 -->
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>B.Tech – AI & Machine Learning</h3>
+            <h4>Vijaya Institute of Technology for Women</h4>
+            <p><strong>2021 – 2025</strong></p>
+            <p>
+              CGPA: 8.0. Specialized in Machine Learning, Deep Learning,
+              Computer Vision, and NLP. Participated in hackathons and presented
+              technical research at state-level symposiums.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+    <!-- Contact Section -->
+    <section id="contact" 
+              style="background-image: url('get-in-touch.png'); 
+                background-size: cover; 
+                background-position: center; 
+                padding: 60px 0; 
+                color: white;">
+        <div class="container">
+            <div class="section-title">
+                <h2>📞 Get In Touch</h2>
+                <p>Let's collaborate on your next data project</p>
+            </div>
+            <div class="contact-content fade-in">
+                <p>I'm always interested in new opportunities and exciting data challenges. Whether you need data analysis, dashboard development, or ETL pipeline design, I'd love to hear from you!</p>
+                <div class="contact-links">
+                    <a href="mailto:vanajapandella@gmail.com" class="contact-link">
+                        <i class="fas fa-envelope"></i> Email
+                      </a>
+                      
+                    <a href="https://www.linkedin.com/in/vanaja-pandella-773b7b2b9/" class="contact-link">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/vanaja36" class="contact-link">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Vanaja P. All rights reserved. Built with passion for data.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Active navigation highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
