@@ -1,0 +1,144 @@
+/* Profile Image */
+.profile-img {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;       /* makes it circular */
+    object-fit: cover;        /* ensures face is centered */
+    border: 4px solid #2563eb; /* blue border for accent */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* subtle shadow */
+    transition: transform 0.3s ease;
+}
+
+.profile-img:hover {
+    transform: scale(1.05);   /* zoom effect on hover */
+}
+
+/* Full-screen background image for the hero section */
+#home.hero {
+    background: url("home.png") no-repeat center center;
+    background-size: cover;      /* makes image cover the entire viewport */
+    background-attachment: fixed;/* optional parallax effect */
+    height: 100vh;               /* full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+  }
+  
+
+/* About Section */
+.about-text h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: #3b82f6;  /* bright blue heading */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.about-text p {
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #e2e8f0; /* lighter gray for readability */
+}
+
+/* Optional: better section spacing */
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+/* Background image for the Skills section */
+#skills {
+    background: url("skills-background.png") no-repeat center center;
+    background-size: cover;        /* makes the image cover the whole section */
+    background-attachment: fixed;  /* optional parallax effect */
+    width: 100%;
+    padding: 60px 0;               /* top/bottom spacing so content is readable */
+  }
+  
+
+/* Full background image for the Projects section */
+#projects {
+    background: url("project.png") no-repeat center center;
+    background-size: cover;      /* cover entire section */
+    background-attachment: fixed; /* optional parallax effect */
+    width: 100%;
+    padding: 60px 0;             /* space for content */
+  }
+  
+.project-image img {
+    width: 100%;
+    height: 250px;            /* slightly taller than before */
+    object-fit: cover;        /* fills box, crops edges */
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.project-image img {
+    width: 100%;
+    height: 250px;            /* slightly taller than before */
+    object-fit: cover;        /* fills box, crops edges */
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.project-image img {
+    width: 100%;
+    height: 250px;            /* slightly taller than before */
+    object-fit: cover;        /* fills box, crops edges */
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.project-image img {
+    width: 100%;
+    height: 250px;            /* slightly taller than before */
+    object-fit: cover;        /* fills box, crops edges */
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.project-image img {
+    width: 100%;
+    height: 250px;            /* slightly taller than before */
+    object-fit: cover;        /* fills box, crops edges */
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.project-image img {
+    width: 100%;
+    height: 250px;            /* slightly taller than before */
+    object-fit: cover;        /* fills box, crops edges */
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+/* Background image for the entire timeline section */
+#timeline {
+    background: url('timeline.png') center/cover no-repeat;
+    width: 100%;
+    min-height: 100vh;     /* full screen height */
+    padding: 60px 0;       /* spacing for content */
+  }
+  
+  /* Optional overlay for readability */
+  #timeline::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+  }
+  
+  #timeline .container {
+    position: relative;
+    z-index: 1;            /* keep content above overlay */
+  }
+  
